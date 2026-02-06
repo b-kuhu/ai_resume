@@ -1,0 +1,11 @@
+model JobApplications {
+    id    String @id @default(uuid())
+    companyName String @unique
+    position String
+    status String
+    jobLink String
+    user User @relation(fields: [userId], references: [id])
+    userId String
+    tailoredContent Json? @default('Pending')
+    createdAt DateTime @default(now())
+}
